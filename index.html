@@ -5,75 +5,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="bootstrap.min.css">
 
 </head>
 
 <body class="text-center">
-    <div class="container">
-        <h3>Use simpleSlider 2.0 at your project:</h3>
-        <ul class="text-left">
-            <li>Add Bootstrap 4 to your HTML.</li>
-            <li>Add simpleSlider_2_0.js to your HTML.</li>
-            <li>Add your own JavaScript file (after simpleSlider_2_0.js !) to your HTML.</li>
-            <li>Create slider-container on any place you need. It will be DIV with class = "container <strong>galery</strong> (your name for slider-container) text-center mt-3 mb-3" (not necessary).</li>
-            <li>Add to your js-file some collection of images (slides) like this:
-                <pre class="text-left bg-secondary text-light mr-3">
-    const imgCollection = {
-        slide1: ['https://picsum.photos/800', '#'],
-        slide2: ['https://picsum.photos/801', '#'],
-        slide3: ['https://picsum.photos/802', '#'],
-        slide4: ['https://picsum.photos/803', '#'],
-        slide5: ['https://picsum.photos/804', '#'],
-    }
-                    </pre>
-            </li>
-            <li>Every slide contains "src" and "alt" atributes.</li>
-            <li>Slider initialisation in your js-file:
-                <pre class="text-left bg-secondary text-light mr-3">
-    let slider = new Slider({
-         container: '.galery',               
-         auto: true,               
-         time: 3000               
-    },                
-    imgCollection)                                
-                </pre>
-            </li>
-            <li>Let's see:</li>
-        </ul>
-    
+
+    <div class="container text-center mt-3 mb-3 pt-3 rounded bg-light">
+        <h1 class="display-4 bg-primary rounded pb-1 mb-3">Simple Slider 2.0</h1>
+        <h5 class="border-top text-primary pt-3 pb-3">Create a beautiful responsive carousel slider.</h5>
+        <p class="text-primary mb-1">Almost all options are responsive and include very intuitive breakpoints settings.</p>
+        <p class="text-primary mb-5">No matter if you are a beginner or an advanced user, starting with SimpleSlider 2.0 is
+            easy.</p>
+
+        <h2 class="display-5 bg-primary rounded mb-3">Installation</h2>
+        <h5 class="border-top text-primary pt-3 pb-3">We’ll be happy to help you!</h5>
+
+        <p class="mb-1 font-weight-bold">Include CSS.</p>
+        <p class="mb-1">First, include Bootstrap 4 CSS files into your HTML head:</p>
+        <pre class="bg-info rounded pl-1 pr-1">
+            <code>
+&#60link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"&#62
+            </code>
+        </pre>
+
+        <p class="mb-1 font-weight-bold">Include JS.</p>
+        <p class="mb-1">Yep, include simpleSlider_2_0.js and your own app.js before end tag &#60/body&#62.</p>
+        <pre class="bg-info rounded pl-1 pr-1">
+            <code>
+&#60script defer src="simpleSlider_2_0.js"&#62&#60/script&#62
+&#60script defer src="app.js"&#62&#60/script&#62
+            </code>
+        </pre>
+
+        <p class="mb-1 font-weight-bold">Include HTML.</p>
+        <p class="mb-1">Create div-container with random class-name for every slider you need at any place of HTML you need.</p>
+        <p class="mb-1">For example, we created two containers:</p>
+        <pre class="bg-info rounded">
+            <code>
+&#60div class="container galery">&#60/div>
+&#60div class="container galery2">&#60/div>
+            </code>
+        </pre>
+
+        <p class="mb-1 font-weight-bold">Add slides collection.</p>
+        <p class="mb-1">Add to your app.js some collection of images (slides).</p>
+        <p class="mb-1">Every slide contains "src" and "alt" atributes.</p>
+        <p class="mb-1">For example:</p>
+
+        <pre class="bg-info rounded text-left pl-5">
+            <code>
+const imgCollection = {
+    slide1: ['https://picsum.photos/800', '#'],
+    slide2: ['https://picsum.photos/801', '#'],
+    slide3: ['https://picsum.photos/802', '#'],
+    slide4: ['https://picsum.photos/803', '#'],
+    slide5: ['https://picsum.photos/804', '#'],
+}            
+            </code>
+        </pre>
+
+        <p class="mb-1 font-weight-bold">Call the plugin.</p>
+        <p class="mb-5">Now initialize function in app.js for every slider:</p>
+
+        <pre class="bg-info rounded text-left pl-5 mb-5">
+            <code>
+let slider = new Slider({
+    container: '...class-name of div-container provided for this slider...',               
+    auto: '...auto-play true/false...',               
+    time: '...time in ms to showing next slide...'               
+},                
+imgCollection) 
+            </code>
+        </pre>
+
+
+        <h2 class="display-5 bg-primary rounded mb-3">Examples</h2>
+        <h5 class="border-top text-primary pt-3 pb-3">We’ll be happy to show you!</h5>
+
+        <p class="mb-1 font-weight-bold">Example #1.</p>
+        <p class="mb-1">Initialization:</p>
+
+        <pre class="bg-info rounded text-left pl-5">
+            <code>
+let slider = new Slider({
+    container: '.galery',
+    auto: true,
+    time: 3000
+},
+imgCollection)
+            </code>
+        </pre>
+
+        <p class="mb-1">Let's see:</p>
         <div class="container galery text-center mt-3 mb-3"></div>
-        <hr>
-    
-        <h3>One more:</h3>
-        <ul class="text-left">
-            <li>Create one more slider-container on any place you need. It will be DIV with class = "container <strong>galery2</strong> (your name for slider-container) text-center mt-3 mb-3" (not necessary).</li>
-            <li>Add to your js-file some collection of images (slides) like this:
-                <pre class="text-left bg-secondary text-light mr-3">
-    const imgCollection2 = {
-        slide1: ['https://picsum.photos/500', '#'],
-        slide2: ['https://picsum.photos/501', '#'],
-        slide3: ['https://picsum.photos/502', '#'],
-        slide4: ['https://picsum.photos/503', '#'],
-        slide5: ['https://picsum.photos/504', '#'],
-    }
-            </li>
-            <li>Slider initialisation in your js-file:
-                <pre class="text-left bg-secondary text-light mr-3">
-    let slider2 = new Slider({
-        container: '.galery2',
-        auto: false,
-    },
-    imgCollection2)
-                </pre>
-            </li>
-            <li>Let's see:</li>
-        </ul>
+
+        <p class="mb-1 font-weight-bold">Example #2.</p>
+        <p class="mb-1">Initialization:</p>
+
+        <pre class="bg-info rounded text-left pl-5">
+            <code>
+let slider2 = new Slider({
+    container: '.galery2',
+    auto: false,
+},
+imgCollection2)
+            </code>
+        </pre>
+
+        <p class="mb-1">Let's see:</p>
         <div class="container galery2 text-center mt-3 mb-3"></div>
-        <hr>
+
+        <h5 class="border-top text-primary pt-3 pb-3">Enjoy it!</h5>
     </div>
-   
 
 
     <script src="simpleSlider_2_0.js"></script>
