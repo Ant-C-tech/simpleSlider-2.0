@@ -25,6 +25,4 @@ let slider = new Slider({
 
 let slider2 = new Slider({
         container: '.galery2',
-        auto: false,
-    },
-    imgCollection2)
+    })

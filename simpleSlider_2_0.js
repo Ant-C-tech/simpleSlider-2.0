@@ -1,12 +1,36 @@
 function Slider(objSettings, objSource) {
 
-    this.container = document.querySelector(objSettings.container)
-    this.slidesCollection = objSource
-    this.auto = objSettings.auto
-    this.time = objSettings.time
+    //Default settings
+    const settings = {
+        auto: false,
+        time: 0
+    }
 
+    //Default source
+    const imgCollectionDefault = {
+        slide1: ['https://picsum.photos/900', '#'],
+        slide2: ['https://picsum.photos/901', '#'],
+        slide3: ['https://picsum.photos/902', '#'],
+        slide4: ['https://picsum.photos/903', '#'],
+        slide5: ['https://picsum.photos/904', '#'],
+    }
+
+    //Constructor
+    this.objSettings = objSettings || settings
+    this.slidesCollection = objSource || imgCollectionDefault
+    this.auto = objSettings.auto || settings.auto
+    this.time = objSettings.time || settings.time
+
+    this.container = document.querySelector(objSettings.container)
+
+
+
+    // Main variables:
     let counter = 0
-    let interval
+
+    let slideshowInterval
+    let startSlidShowInterval
+    
     let images
     let btnPrev
     let btnNext
@@ -29,13 +53,25 @@ function Slider(objSettings, objSource) {
             this.resizeContainer()
         })
 
+        this.startSlideShow()
+
         btnNext.onclick = () => {
-            clearInterval(interval)
+            clearInterval(slideshowInterval)
+            clearInterval(startSlidShowInterval)
+
+            startSlidShowInterval = setTimeout(() => {
+                this.startSlideShow()
+            }, 5000)
             this.next()
         }
 
         btnPrev.onclick = () => {
-            clearInterval(interval)
+            clearInterval(slideshowInterval)
+            clearInterval(startSlidShowInterval)
+
+            startSlidShowInterval = setTimeout(() => {
+                this.startSlideShow()
+            }, 5000)
             this.prev()
         }
     })
@@ -43,10 +79,6 @@ function Slider(objSettings, objSource) {
     window.addEventListener('resize', () => {
         this.resizeContainer()
     })
-
-    if (this.auto) {
-        interval = setInterval(() => this.next(), this.time)
-    }
 
     this.createContent = function () {
         let content = ''
@@ -101,6 +133,12 @@ function Slider(objSettings, objSource) {
         btnGroup.style.bottom = '15px'
         btnGroup.style.left = '50%'
         btnGroup.style.transform = 'translateX(-50%)'
+    }
+
+    this.startSlideShow = function () {
+        if (this.auto) {
+            slideshowInterval = setInterval(() => this.next(), this.time)
+        }
     }
 
 }

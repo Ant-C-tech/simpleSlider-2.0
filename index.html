@@ -67,6 +67,33 @@ const imgCollection = {
             </code>
         </pre>
 
+        <p class="mb-1 font-weight-bold">Default settings.</p>
+        <p class="mb-1">By default Simple PopUp has next options:</p>
+        <p class="mb-1">Settigs:</p>
+
+        <pre class="bg-info rounded text-left pl-5 mb-5">
+            <code>
+{
+    auto: false,
+    time: 0
+}
+            </code>
+        </pre>
+
+        <p class="mb-1">Slide collections (imgCollection):</p>
+
+        <pre class="bg-info rounded text-left pl-5 mb-5">
+            <code>
+{
+    slide1: ['https://picsum.photos/900', '#'],
+    slide2: ['https://picsum.photos/901', '#'],
+    slide3: ['https://picsum.photos/902', '#'],
+    slide4: ['https://picsum.photos/903', '#'],
+    slide5: ['https://picsum.photos/904', '#'],
+}
+            </code>
+        </pre>
+
         <p class="mb-1 font-weight-bold">Call the plugin.</p>
         <p class="mb-5">Now initialize function in app.js for every slider:</p>
 
@@ -103,15 +130,13 @@ imgCollection)
         <div class="container galery text-center mt-3 mb-3"></div>
 
         <p class="mb-1 font-weight-bold">Example #2.</p>
-        <p class="mb-1">Initialization:</p>
+        <p class="mb-1">Initialization with default settings:</p>
 
         <pre class="bg-info rounded text-left pl-5">
             <code>
 let slider2 = new Slider({
     container: '.galery2',
-    auto: false,
-},
-imgCollection2)
+})
             </code>
         </pre>
 
